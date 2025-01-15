@@ -19,6 +19,7 @@ if (WITH_PYTHON)
   find_package(Python3 COMPONENTS Development)
 endif()
 find_package(Torch REQUIRED)
+message(STATUS "Torch include dirs: ${TORCH_INCLUDE_DIRS}")
 include_directories(${TORCH_INCLUDE_DIRS})  # in case, can not find aten/open ATen/OpMathType.h
 
 file(GLOB HEADERS csrc/*.h)
