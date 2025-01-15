@@ -20,7 +20,6 @@ if (WITH_PYTHON)
 endif()
 find_package(Torch REQUIRED)
 message(STATUS "Torch include dirs: ${TORCH_INCLUDE_DIRS}")
-include_directories(${TORCH_INCLUDE_DIRS})  # in case, can not find aten/open ATen/OpMathType.h
 
 file(GLOB HEADERS csrc/*.h)
 file(GLOB OPERATOR_SOURCES csrc/cpu/*.h csrc/cpu/*.cpp csrc/*.cpp)
@@ -29,6 +28,7 @@ if(WITH_CUDA)
 endif()
 
 add_library(${PROJECT_NAME} SHARED ${OPERATOR_SOURCES})
+target_include_directories(${PROJECT_NAME} PRIVATE ${TORCH_INCLUDE_DIRS})
 target_link_libraries(${PROJECT_NAME} PRIVATE ${TORCH_LIBRARIES})
 if (WITH_PYTHON)
   target_link_libraries(${PROJECT_NAME} PRIVATE Python3::Python)
