@@ -27,7 +27,7 @@ else()
 endif()
 
 if (WITH_PYTHON)
-  message(STATUS "[torch_scatter]: WITH_PATH ON")
+  message(STATUS "[torch_scatter]: WITH_PYTHON ON")
   add_definitions(-DWITH_PYTHON)
   find_package(Python3 COMPONENTS Development)
 else()
