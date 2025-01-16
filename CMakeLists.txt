@@ -11,7 +11,7 @@ elseif (CMAKE_BUILD_TYPE STREQUAL "Debug" AND WIN32)
   message(STATUS "[TorchScatter Windows Warning]: build flag is Debug, but reset to Release")
   set(CMAKE_BUILD_TYPE Release)
 endif()
-message(STATUS "[TorchScatter]: build type ${CMAKE_BUILD_TYPE}")
+message(STATUS "[TorchScatter]: build type is ${CMAKE_BUILD_TYPE}")
 
 option(WITH_CUDA "Enable CUDA support" OFF)
 option(WITH_PYTHON "Link to Python when building" ON)
