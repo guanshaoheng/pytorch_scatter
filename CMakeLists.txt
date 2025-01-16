@@ -4,6 +4,13 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(TORCHSCATTER_VERSION 2.1.2)
 
+if (NOT CMAKE_BUILD_TYPE)
+  set(CMAKE_BUILD_TYPE Release)
+elseif (CMAKE_BUILD_TYPE STREQUAL "Debug")
+  message(STATUS "[TorchScatter Warning]: build flag is Debug, but reset to Release")
+  set(CMAKE_BUILD_TYPE Release)
+endif()
+
 option(WITH_CUDA "Enable CUDA support" OFF)
 option(WITH_PYTHON "Link to Python when building" ON)
 
